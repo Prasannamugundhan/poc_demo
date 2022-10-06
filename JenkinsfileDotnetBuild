@@ -17,7 +17,7 @@ pipeline {
 
 	stage('Dependencies') {
      	 	steps {
-		dir('DotnetBuild'){
+		dir('poc_demo'){
        	 	 sh "dotnet restore"
      	 }
        } 
