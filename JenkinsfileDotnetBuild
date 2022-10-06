@@ -17,7 +17,7 @@ pipeline {
 
 	stage('Dependencies') {
      	 	steps {
-		dir('**/*.csproj'){
+		dir('ClientApp'){
        	 	 sh "dotnet restore"
      	 }
        } 
