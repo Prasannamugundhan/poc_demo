@@ -26,14 +26,14 @@ pipeline {
 	  //Build stage
 	stage ('Build')  {
 	    steps {
-        dir('\bin\Debug\net5.0'){
+        dir('/bin/Debug/net5.0'){
             sh "dotnet build"
           }
         }    
    }
         stage ('Run')  {
 	    steps {
-        dir('bin\Debug\net5.0'){
+        dir('/bin/Debug/net5.0'){
             sh "dotnet run"
           }
         }    
