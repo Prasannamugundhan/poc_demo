@@ -17,7 +17,7 @@ pipeline {
 
 	stage('Dependencies') {
      	 	steps {
-		dir('poc_demo'){
+		dir('**/*.csproj'){
        	 	 sh "dotnet restore"
      	 }
        } 
