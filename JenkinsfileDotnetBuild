@@ -1,0 +1,57 @@
+pipeline {
+  agent any
+    stages {
+
+  stage ('Clean workspace') {
+  steps {
+    cleanWs()
+  }
+}
+
+
+  stage ('Checkout SCM'){
+        steps {
+          checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Git', url: 'https://github.com/Prasannamugundhan/AngularDotnetPOC.git']]])
+      }
+   }
+
+	stage('Dependencies') {
+     	 	steps {
+		dir('src'){
+       	 	 sh "dotnet restore"
+     	 }
+       } 
+       }
+
+	  //Build stage
+	stage ('Build')  {
+	    steps {
+        dir('ClientApp'){
+            sh "dotnet build"
+          }
+        }    
+   }
+        stage ('Run')  {
+	    steps {
+        dir('ClientApp'){
+            sh "dotnet run"
+          }
+        }    
+   }
+   
+    //Testing Phase
+	stage('Test') {
+          steps {
+          sh "dotnet test -l:trx || true"        
+      }
+    }
+   }
+	post {
+   	 always {
+      	mstest(testResultsFile: '**/*.trx', failOnError: false, keepLongStdio: true)
+    
+  }
+      
+    }
+}
+
