@@ -4,20 +4,20 @@ pipeline {
 
   stage ('Checkout SCM'){
         steps {
-          checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Git', url: '']]])
+          checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Git', url: 'https://github.com/Prasannamugundhan/poc_demo.git']]])
       }
    }
 	  //Build stage
 	stage ('Build')  {
 	    steps {
-        dir('my-new-app/ClientApp'){
+        dir('ClientApp'){
             sh "npm install"
           }
         }    
    }
       stage ('Deploy')  {
 	    steps {
-        dir('my-new-app/ClientApp'){
+        dir('ClientApp'){
 		
 		sh "npm run build"
 		//sh "npm audit fix --force"
