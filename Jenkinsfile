@@ -28,7 +28,7 @@ pipeline {
               steps {
                   withAWS(region:'us-east-2',credentials:'s3-bucket') {
                   sh 'echo "Uploading content with AWS creds"'
-                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'ClinetApp/dist', bucket:'poc-dsg')
+                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'AngularCICD/ClinetApp/dist', bucket:'poc-dsg')
                   }
               }
          }
