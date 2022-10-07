@@ -32,27 +32,21 @@ pipeline {
           
         }    
    }
-        stage ('Run')  {
+   	stage ('DockerBuild')  {
 	    steps {
         
-            sh "dotnet run"
+            sh " aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 297621708399.dkr.ecr.us-east-2.amazonaws.com "
+	    sh " docker build -t demo ."
+	    sh " docker tag demo:latest 297621708399.dkr.ecr.us-east-2.amazonaws.com/demo:latest "
+	    sh "docker push 297621708399.dkr.ecr.us-east-2.amazonaws.com/demo:latest"
+	    
           
         }    
    }
    
-    //Testing Phase
-	stage('Test') {
-          steps {
-          sh "dotnet test -l:trx || true"        
-      }
-    }
+   	
+        
    }
-	post {
-   	 always {
-      	mstest(testResultsFile: '**/*.trx', failOnError: false, keepLongStdio: true)
-    
-  }
-      
-    }
+	
 }
 
