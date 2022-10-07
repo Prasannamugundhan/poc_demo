@@ -17,25 +17,25 @@ pipeline {
 
 	stage('Dependencies') {
      	 	steps {
-		dir('ClientApp'){
+		
        	 	 sh "dotnet restore"
-     	 }
+     	 
        } 
        }
 
 	  //Build stage
 	stage ('Build')  {
 	    steps {
-        dir('bin/Debug/net5.0/ref'){
+        
             sh "dotnet build"
-          }
+          
         }    
    }
         stage ('Run')  {
 	    steps {
-        dir('bin/Debug/net5.0/ref'){
+        
             sh "dotnet run"
-          }
+          
         }    
    }
    
