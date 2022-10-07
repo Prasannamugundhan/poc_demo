@@ -28,7 +28,7 @@ pipeline {
 	    steps {
         
             sh "dotnet build"
-	    sh "npm audit fix --force"
+	    
           
         }    
    }
