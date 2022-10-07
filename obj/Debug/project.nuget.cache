@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "rEtj2fGkjUYOSyFYt4wYPphG3pwWBTBMwYATDEAdc/MUAhz10smnTT9lpkl2qG89p4JUJyqa46oQ7V/Uaqd7Wg==",
+  "success": true,
+  "projectFilePath": "D:\\Angdot\\angulardotnet\\angulardotnet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\prasanna.jahir\\.nuget\\packages\\microsoft.aspnetcore.spaservices.extensions\\5.0.13\\microsoft.aspnetcore.spaservices.extensions.5.0.13.nupkg.sha512",
+    "C:\\Users\\prasanna.jahir\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\5.0.0\\microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\prasanna.jahir\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\5.0.0\\microsoft.extensions.fileproviders.physical.5.0.0.nupkg.sha512",
+    "C:\\Users\\prasanna.jahir\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\5.0.0\\microsoft.extensions.filesystemglobbing.5.0.0.nupkg.sha512",
+    "C:\\Users\\prasanna.jahir\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
